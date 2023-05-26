@@ -1,0 +1,17 @@
+name: my_app
+version: 0.1.0
+
+authors:
+  - Andrey <atixan12@gmail.com>
+
+targets:
+  my_app:
+    main: src/my_app.cr
+
+crystal: 1.8.2
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
