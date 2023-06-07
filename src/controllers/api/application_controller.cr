@@ -6,6 +6,6 @@ class ApplicationController
 
   def initialize(config : Config, env : HTTP::Server::Context)
     @config = config
-    @env    = env
+    @env = env
   end
 end

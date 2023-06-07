@@ -16,12 +16,12 @@ end
 
 get "/api/full_metrics" do |env|
   env.response.content_type = InformationController::CONTENT_TYPE
-  InformationController.new(app_config, env).info
+  InformationController.new(app_config, env).full_metrics
 end
 
 post "/api/change_state" do |env|
   env.response.content_type = InformationController::CONTENT_TYPE
-  InformationController.new(app_config, env).info
+  InformationController.new(app_config, env).change_state
 end
 
 Kemal.run
