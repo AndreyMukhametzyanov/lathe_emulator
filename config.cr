@@ -17,8 +17,11 @@ class Config
     if state == "enabled"
       @info["current_programm"] = "T#{rand(0..10)}"
       @info["spindle_speed"] = "#{rand(0..1000)} rpm"
+      @info["x_coordinate"] = "#{rand(-100..100)}"
       @info["y_coordinate"] = "#{rand(-100..100)}"
       @info["z_coordinate"] = "#{rand(-100..100)}"
+    else
+      @info["state"] = "disabled"
     end
     @info
   end
