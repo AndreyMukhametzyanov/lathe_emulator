@@ -1,7 +1,11 @@
+require "yaml"
+
 class Config
+  YML = YAML.parse(File.read("./start.yml"))
+
   property state : String = "enabled"
-  property type : String = "lathe machine"
-  property serial_number : String = "DM001"
+  property type : String = YML["type"].to_s
+  property serial_number : String = YML["serial_number"].to_s
   property location : String = "university"
   property info : Hash(String, String)
 
@@ -27,6 +31,8 @@ class Config
   end
 
   private def init_hash
+    yml = YAML.parse(File.read("./start.yml"))
+    puts yml["serial_number"].to_s
     {
       "type"               => @type,
       "state"              => @state,
