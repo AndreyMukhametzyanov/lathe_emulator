@@ -61,7 +61,7 @@ describe "app" do
   end
 
   describe "#change_state" do
-    it "change state" do
+    it "change state to disabled" do
       data = {"operation_executed": true, "state": "disabled"}.to_json
 
       post "/api/change_state", headers: HTTP::Headers{"Content-Type" => "application/json"}, body: {"state" => "disabled"}.to_json
@@ -79,6 +79,24 @@ describe "app" do
 
       response.status_code.should eq 200
       data_hash.as_h.values.should eq data_hash2.as_h.values
+
+      new_data = {"operation_executed": true, "state": "enabled"}.to_json
+
+      post "/api/change_state", headers: HTTP::Headers{"Content-Type" => "application/json"}, body: {"state" => "enabled"}.to_json
+      response.status_code.should eq 200
+      response.body.should eq new_data
+
+      get "/api/full_metrics"
+      new_metrics = JSON.parse(response.body)
+
+      response.status_code.should eq 200
+      new_metrics["state"].should eq "enabled"
+
+      get "/api/full_metrics"
+      new_metrics2 = JSON.parse(response.body)
+
+      response.status_code.should eq 200
+      new_metrics.as_h.values.should_not eq new_metrics2.as_h.values
     end
   end
 end

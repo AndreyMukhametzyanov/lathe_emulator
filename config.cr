@@ -13,8 +13,9 @@ class Config
     @info = init_hash
   end
 
-  def update_metrics(state)
-    if state == "enabled"
+  def update_metrics
+    if @state == "enabled"
+      @info["state"] = "enabled"
       @info["current_programm"] = "T#{rand(0..10)}"
       @info["spindle_speed"] = "#{rand(0..1000)} rpm"
       @info["x_coordinate"] = "#{rand(-100..100)}"

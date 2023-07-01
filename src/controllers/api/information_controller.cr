@@ -11,7 +11,7 @@ class InformationController < ApplicationController
   end
 
   def full_metrics
-    config.update_metrics(config.state).to_json
+    config.update_metrics.to_json
   end
 
   def change_state
