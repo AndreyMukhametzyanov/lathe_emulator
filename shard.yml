@@ -13,8 +13,8 @@ crystal: 1.8.2
 license: MIT
 
 dependencies:
-  spec-kemal:
-    github: kemalcr/spec-kemal
+  redis:
+    github: stefanwille/crystal-redis
   kemal:
     github: kemalcr/kemal
 
