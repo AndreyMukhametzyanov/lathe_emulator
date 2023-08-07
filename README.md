@@ -1,27 +1,36 @@
-# drilling machine
+# Lathe Emulator 
 
-TODO: Write a description here
+## Описание
+Данная программа позволяет имитировать работу станка в (данном случае фрезерного, а при желании любого).
+Необходима для использования в проекте [Machine monitoring system](https://github.com/AndreyMukhametzyanov/mms).
+Разработана на языке Crystal с применением небольшой щепотки магии.
 
-## Installation
+## Функционал
+Есть, значит, три путЯ:
+- /api/info - получение краткой информации о станке
+- /api/full_metrics - получение полной информации о станке
+- /api/change_state - изменение статуса станка (вкл/выкл). Необходимо для удаленного управления станком через [Machine monitoring system](https://github.com/AndreyMukhametzyanov/mms).
 
-TODO: Write installation instructions here
+При включенном станке ключевые данные меняются рандомно имитируя его работу.
 
-## Usage
+## Установка
 
-TODO: Write usage instructions here
+```bash
+shards install
+```
 
-## Development
+## Использование
 
-TODO: Write development instructions here
+```bash
+crystal run app.cr
+```
 
-## Contributing
+## Тесты
 
-1. Fork it (<https://github.com/your-github-user/my_app/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+```bash
+KEMAL_ENV=test crystal spec
+```
 
-## Contributors
+## Разработчик
 
-- [Andrey](https://github.com/your-github-user) - creator and maintainer
+- [Andrey](https://github.com/AndreyMukhametzyanov) - creator and maintainer and [великодушный пожизненный диктатор](https://ru.wikipedia.org/wiki/Великодушный_пожизненный_диктатор)

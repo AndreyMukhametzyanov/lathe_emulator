@@ -1,2 +1,3 @@
 require "spec"
-require "../src/my_app"
+require "spec-kemal"
+require "../app"
